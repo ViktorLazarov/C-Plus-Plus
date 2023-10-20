@@ -18,7 +18,7 @@ int main()
     c = sqrt(pow(a,2)+pow(b,2));
 
     cout << c;    
-    
+    a
 
     return 0;
 }

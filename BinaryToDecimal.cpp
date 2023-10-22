@@ -2,13 +2,18 @@
 #include <cmath>
 
 using namespace std;
-int main()
-{
 
-    string input;
+string input;
+
+void getInput()
+{
     cout << "Enter a binary number!";
     cin >> input;
-    
+}
+
+void calculate()
+{
+
     int result = 0;
     int size = input.length();
     int temp;
@@ -25,6 +30,12 @@ int main()
     }
 
     cout << result;
+}
+
+int main()
+{
+    getInput();
+    calculate();
 
     return 0;
 }

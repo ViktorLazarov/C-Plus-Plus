@@ -105,7 +105,8 @@ int main()
         std::cout << "2.Deposit\n";
         std::cout << "3.Withdraw\n";
         std::cout << "4.Exit\n";
-        std::cout << "Please choose an option:";
+        std::cout << "************************\n";
+        std::cout << "Please choose an option: ";
         std::cin >> input;
 
         std::stringstream ss(input);

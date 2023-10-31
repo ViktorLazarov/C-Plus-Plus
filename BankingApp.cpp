@@ -64,10 +64,14 @@ double withdraw(double balance)
 
     if (ss >> withdraw)
     {
-        if (withdraw < 0 || withdraw > balance)
+        if (withdraw < 0)
         {
             std::cout << "*******************************************************" << '\n';
             std::cout << "Invalid Amount. Please enter a valid amount to withdraw." << '\n';
+            std::cout << "*******************************************************" << '\n';
+        } else if(withdraw > balance) {
+            std::cout << "*******************************************************" << '\n';
+            std::cout << "Insufficient Funds." << '\n';
             std::cout << "*******************************************************" << '\n';
         }
         else

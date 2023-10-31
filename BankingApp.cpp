@@ -128,9 +128,11 @@ int main()
                 break;
             case 2:
                 balance += depositAmountFunc();
+                showBalance(balance);
                 break;
             case 3:
                 balance -= withdraw(balance);
+                showBalance(balance);
                 break;
             case 4:
                 std::cout << "*************************************\n";

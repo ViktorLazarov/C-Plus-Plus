@@ -94,6 +94,25 @@ double withdraw(double balance)
     return withdrawAmount;
 }
 
+void printFiller(int messageLength)
+{
+    for (int i = 0; i < messageLength; i++)
+    {
+        std::cout << "*";
+    }
+}
+
+void printing(std::string message)
+{
+    printFiller(message.length());
+    std::cout << '\n';
+
+    std::cout << message << '\n';
+
+    printFiller(message.length());
+    std::cout << '\n';
+}
+
 int main()
 {
 
@@ -121,9 +140,10 @@ int main()
         {
             if (action < 1 || action > 4)
             {
-                std::cout << "***********************************\n";
-                std::cout << "Invalid input. Please choose again!\n";
-                std::cout << "***********************************\n";
+                // std::cout << "***********************************\n";
+                // std::cout << "Invalid input. Please choose again!\n";
+                // std::cout << "***********************************\n";
+                printing("Invalid input. Please choose again!");
                 continue;
             }
 
@@ -141,21 +161,22 @@ int main()
                 showBalance(balance);
                 break;
             case 4:
-                std::cout << "*************************************\n";
-                std::cout << "Thanks for visiting! Have a nice day!\n";
-                std::cout << "*************************************\n";
+                // std::cout << "*************************************\n";
+                // std::cout << "Thanks for visiting! Have a nice day!\n";
+                // std::cout << "*************************************\n";
+                printing("Thanks for visiting! Have a nice day!");
                 break;
             }
         }
         else
         {
-            std::cout << "***********************************\n";
-            std::cout << "Invalid input. Please choose again!\n";
-            std::cout << "***********************************\n";
+            // std::cout << "***********************************\n";
+            // std::cout << "Invalid input. Please choose again!\n";
+            // std::cout << "***********************************\n";
+            printing("Invalid input. Please choose again!");
         }
 
     } while (action != 4);
 
     return 0;
 }
-

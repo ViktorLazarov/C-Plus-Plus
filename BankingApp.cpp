@@ -94,22 +94,25 @@ double withdraw(double balance)
     return withdrawAmount;
 }
 
-void printFiller(int messageLength)
+void printFiller(int messageLength,char symbol)
 {
-    for (int i = 0; i < messageLength; i++)
-    {
-        std::cout << "*";
-    }
+    // for (int i = 0; i < messageLength; i++)
+    // {
+    //     std::cout << "*";
+    // }
+    std::cout << symbol << std::setfill(symbol) << std::setw(messageLength-1) << symbol;
 }
+
 
 void printing(std::string message)
 {
-    printFiller(message.length());
+    char symbol = '%';
+    printFiller(message.length(), symbol);
     std::cout << '\n';
 
     std::cout << message << '\n';
 
-    printFiller(message.length());
+    printFiller(message.length(), symbol);
     std::cout << '\n';
 }
 

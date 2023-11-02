@@ -1,11 +1,13 @@
 #include <iostream>
-#include <fmt/core.h>
+#include <iomanip>
+#include <string>
+// using namespace std;
 
-
-int main()
-{
-    std::cout << fmt::format("Hello {}", "world!");
+int main() {
+    std::string text = "Willkommen bei Ihrem örtlichen Finanzamt!";
+    int length = text.length();
     
-
-    return 0;
+    std::cout << "#" << std::setfill('#') << std::setw(length-2) << "#" << std::endl;
+    std::cout << text << std::endl;
+    std::cout << "Länge der Zeichenkette: " << length << std::endl;
 }

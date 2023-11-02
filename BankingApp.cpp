@@ -69,7 +69,9 @@ double withdraw(double balance)
             std::cout << "*******************************************************" << '\n';
             std::cout << "Invalid Amount. Please enter a valid amount to withdraw." << '\n';
             std::cout << "*******************************************************" << '\n';
-        } else if(withdraw > balance) {
+        }
+        else if (withdraw > balance)
+        {
             std::cout << "*******************************************************" << '\n';
             std::cout << "Insufficient Funds." << '\n';
             std::cout << "*******************************************************" << '\n';
@@ -156,3 +158,4 @@ int main()
 
     return 0;
 }
+

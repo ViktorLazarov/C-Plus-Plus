@@ -10,4 +10,5 @@ int main() {
     std::cout << "#" << std::setfill('#') << std::setw(length-2) << "#" << std::endl;
     std::cout << text << std::endl;
     std::cout << "Länge der Zeichenkette: " << length << std::endl;
+    dfgbhdfgghfdgbh
 }

@@ -11,4 +11,5 @@ int main() {
     std::cout << text << std::endl;
     std::cout << "Länge der Zeichenkette: " << length << std::endl;
     dfgbhdfgghfdgbh
+        dfbvdfgdg
 }

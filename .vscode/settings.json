@@ -60,5 +60,6 @@
         "xlocbuf": "cpp",
         "xlocmes": "cpp",
         "xtree": "cpp"
-    }
+    },
+    "cmake.configureOnOpen": true
 }

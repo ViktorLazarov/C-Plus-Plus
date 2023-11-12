@@ -7,13 +7,13 @@
 using std::cin;
 using std::cout;
 
-void printFiller(int messageLength,char symbol)
+void printFiller(int messageLength, char symbol)
 {
     // for (int i = 0; i < messageLength; i++)
     // {
     //     std::cout << "*";
     // }
-    std::cout << symbol << std::setfill(symbol) << std::setw(messageLength-1) << symbol;
+    std::cout << symbol << std::setfill(symbol) << std::setw(messageLength - 1) << symbol;
 }
 void printing(std::string message)
 {
@@ -75,6 +75,7 @@ int main()
             std::string username;
             std::string password;
             bool userFound = false;
+            int tries = 5;
 
             cout << "Enter your username: ";
             cin >> username;
@@ -85,6 +86,7 @@ int main()
                     userFound = true;
                     do
                     {
+                        cout << "Tries left: " << tries << '\n';
                         cout << "Enter your password: ";
                         cin >> password;
                         if (password == users.at(i).at(1))
@@ -96,7 +98,16 @@ int main()
                         else
                         {
                             // cout << "Wrong password! Try again!\n";
-                            printing("Wrong password! Try again!");
+                            tries--;
+                            if (tries > 0)
+                            {
+                                printing("Wrong password! Try again!");
+                            }
+                            else
+                            {
+                                printing("Wrong password! You have run out of tries. You have to start over or register a new user!");
+                                break;
+                            }
                         }
                     } while (password != users.at(i).at(1));
                 }

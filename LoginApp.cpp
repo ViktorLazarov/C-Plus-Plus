@@ -1,8 +1,31 @@
 #include <iostream>
+#include <iomanip>
+#include <string>
+#include <sstream>
 #include <vector>
 
 using std::cin;
 using std::cout;
+
+void printFiller(int messageLength,char symbol)
+{
+    // for (int i = 0; i < messageLength; i++)
+    // {
+    //     std::cout << "*";
+    // }
+    std::cout << symbol << std::setfill(symbol) << std::setw(messageLength-1) << symbol;
+}
+void printing(std::string message)
+{
+    char symbol = '*';
+    printFiller(message.length(), symbol);
+    std::cout << '\n';
+
+    std::cout << message << '\n';
+
+    printFiller(message.length(), symbol);
+    std::cout << '\n';
+}
 
 int main()
 {
@@ -16,9 +39,10 @@ int main()
     std::vector<std::vector<std::string>> users;
     std::vector<std::string> userData;
 
-    cout << "*********************************************\n";
-    cout << "Welcome! Would you like to login or register?\n";
-    cout << "*********************************************\n";
+    // cout << "*********************************************\n";
+    // cout << "Welcome! Would you like to login or register?\n";
+    // cout << "*********************************************\n";
+    printing("Welcome! Would you like to login or register?");
 
     do
     {
@@ -40,9 +64,10 @@ int main()
             userData.push_back(userPass);
             users.push_back(userData);
             userData.clear();
-            cout << "*****************\n";
-            cout << "New user created!\n";
-            cout << "*****************\n";
+            // cout << "*****************\n";
+            // cout << "New user created!\n";
+            // cout << "*****************\n";
+            printing("New user created!");
         }
         else if (action == 2)
         {
@@ -64,12 +89,14 @@ int main()
                         cin >> password;
                         if (password == users.at(i).at(1))
                         {
-                            cout << "You've logged in successfully!";
+                            // cout << "You've logged in successfully!";
+                            printing("You've logged in successfully!");
                             return 0;
                         }
                         else
                         {
-                            cout << "Wrong password! Try again!\n";
+                            // cout << "Wrong password! Try again!\n";
+                            printing("Wrong password! Try again!");
                         }
                     } while (password != users.at(i).at(1));
                 }
@@ -77,7 +104,8 @@ int main()
 
             if (!userFound)
             {
-                cout << "No such user was found! Try again or register a new user!\n";
+                // cout << "No such user was found! Try again or register a new user!\n";
+                printing("No such user was found! Try again or register a new user!");
             }
         }
         else if (action == 3)
@@ -86,13 +114,15 @@ int main()
         }
         else
         {
-            cout << "**************************\n";
-            cout << "Wrong Input! Choose again!\n";
-            cout << "**************************\n";
+            // cout << "**************************\n";
+            // cout << "Wrong Input! Choose again!\n";
+            // cout << "**************************\n";
+            printing("Wrong Input! Choose again!");
         }
 
     } while (!exit);
-    cout << "Have a nice day!";
+    // cout << "Have a nice day!";
+    printing("Have a nice day!");
 
     return 0;
 }

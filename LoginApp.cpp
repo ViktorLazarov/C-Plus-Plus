@@ -84,7 +84,7 @@ int main()
                 cout << "Enter your username: ";
                 cin >> username;
                 for (int i = 0; i < users.size(); i++)
-                {
+                {            
                     if (username == users.at(i).at(0))
                     {
                         userFound = true;

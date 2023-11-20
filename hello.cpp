@@ -5,13 +5,12 @@ using namespace std;
 
 int main() {
     
-    std::cout << "Hello World!";
+    std::cout << "Hello World!\n";
     for (int i = 0; true ; i++)
     {
         cout << i << '\n';
         if (i == 25)
         {
-            /* code */
             break;
         }
         

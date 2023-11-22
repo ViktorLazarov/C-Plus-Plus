@@ -6,9 +6,11 @@ using namespace std;
 
 int main()
 {
-    int mapRows = 30;
-    int mapColums = 30;
+    int mapRows = 5;
+    int mapColums = 5;
     int num;
+    int targetsNumber = 0;
+    int tries = (mapColums*mapRows/6)+6;
     char player = 'X';
     char direction;
     char grid[mapRows][mapColums];
@@ -22,7 +24,7 @@ int main()
         '*',
         '*',
     };
-    
+
     srand(time(NULL));
 
     for (int i = 0; i < mapRows; i++)
@@ -38,21 +40,29 @@ int main()
     int rowIndex = 0;
     int colIndex = 0;
 
-    while (true)
+    while (tries > 0)
     {
-
+        targetsNumber = 0;
         for (int i = 0; i < mapRows; i++)
         {
             for (int j = 0; j < mapColums; j++)
             {
                 cout << grid[i][j];
+                if (grid[i][j] == 'F')
+                {
+                    targetsNumber++;
+                }
             }
             cout << '\n';
         }
         cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
+        cout << "Targets left: " << targetsNumber << '\n';
+        cout << "Tries left: " << tries << '\n';
+
 
         cout << "Enter direction(u-up, d-down, l-left, r-right, e-end):\n";
         cin >> direction;
+        tries--;
         if (direction == 'e')
         {
             break;

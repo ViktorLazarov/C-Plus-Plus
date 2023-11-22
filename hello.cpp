@@ -1,23 +1,40 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <vector>
+
 using namespace std;
-string test();
+
 int main()
 {
 
-    std::cout << "Hello World!\n";
-   
-    cout << test();
-}
+    // cout << "Hello World!\n";
+    string input;
+    cout << "Enter a number\n";
+    int result = 0;
+    int userNumber;
 
-string test()
-{
-    cout << 1 << '\n';
-    cout << 2 << '\n';
-    cout << 3 << '\n';
-    return "Hello";
-    cout << 4 << '\n';
-    cout << 5 << '\n';
-    cout << 6 << '\n';
+    while (true)
+    {
+        cin >> input;
+        stringstream ss(input);
+        if (ss >> userNumber)
+        {
+
+            result += userNumber;
+        }
+        else
+        {
+            
+            if (input == "=")
+            {
+                break;
+            }
+            else {
+                cout << "Wrong input!\n";
+            }
+        }
+    }
+    cout << result;
+    return 0;
 }

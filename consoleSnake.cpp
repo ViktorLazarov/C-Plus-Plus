@@ -13,15 +13,23 @@ int main()
     cout << "Width: ";
     cin >> width;
 
-    int snakeSize;
-    int initialTargets = 0;
+    int snakeSize = 1;
+
     int mapRows = height;
     int mapColums = width;
+    int rowIndex = 0;
+    int colIndex = 0;
+
     int randomNum;
-    int targetsNumber = 0;
-    int tries = (mapColums * mapRows / 6) + 6;
+
+    int initialTargets = 0;
+    int currentTargetsNumber;
+
+    int tries = 100; //(mapColums * mapRows / 6) + 6;
+
     char player = 'X';
     char direction;
+
     char grid[mapRows][mapColums];
     char mapBlocks[] = {
         '*',
@@ -35,48 +43,58 @@ int main()
     };
 
     srand(time(NULL));
-
+    // randomly filing the map with blocks
     for (int i = 0; i < mapRows; i++)
     {
         for (int j = 0; j < mapColums; j++)
         {
             randomNum = (rand() % 8);
             grid[i][j] = mapBlocks[randomNum];
+        }
+    }
+    grid[0][0] = player; // initial position of the snake
+
+    // counting the targets at the beginning
+    for (int i = 0; i < mapRows; i++)
+    {
+        for (int j = 0; j < mapColums; j++)
+        {
             if (grid[i][j] == 'F')
             {
                 initialTargets++;
             }
         }
     }
-    grid[0][0] = player;
 
-    int rowIndex = 0;
-    int colIndex = 0;
 
     while (tries > 0)
     {
-        
-        targetsNumber = 0;
+        currentTargetsNumber = 0;
+        // printing of the map
         for (int i = 0; i < mapRows; i++)
         {
             for (int j = 0; j < mapColums; j++)
             {
                 cout << grid[i][j];
-                if (grid[i][j] == 'F')
-                {
-                    targetsNumber++;
-                }
             }
             cout << '\n';
         }
-        snakeSize = initialTargets - targetsNumber;
-        if (snakeSize == 0)
+        // counting the amount of targets on the map
+        for (int i = 0; i < mapRows; i++)
         {
-            snakeSize = 1;
+            for (int j = 0; j < mapColums; j++)
+            {
+                if (grid[i][j] == 'F')
+                {
+                    currentTargetsNumber++;
+                }
+            }
         }
-        
+        // calculating the size of the snake
+        snakeSize = (initialTargets - currentTargetsNumber) + 1;
+
         cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
-        cout << "Targets left: " << targetsNumber << '\n';
+        cout << "Targets left: " << currentTargetsNumber << '\n';
         cout << "Tries left: " << tries << '\n';
         cout << "Snake size: " << snakeSize << '\n';
 

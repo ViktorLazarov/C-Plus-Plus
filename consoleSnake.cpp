@@ -6,11 +6,20 @@ using namespace std;
 
 int main()
 {
-    int mapRows = 5;
-    int mapColums = 5;
-    int num;
+    int height, width;
+    cout << "Please specify the dimentions of the map!\n";
+    cout << "Height: ";
+    cin >> height;
+    cout << "Width: ";
+    cin >> width;
+
+    int snakeSize;
+    int initialTargets = 0;
+    int mapRows = height;
+    int mapColums = width;
+    int randomNum;
     int targetsNumber = 0;
-    int tries = (mapColums*mapRows/6)+6;
+    int tries = (mapColums * mapRows / 6) + 6;
     char player = 'X';
     char direction;
     char grid[mapRows][mapColums];
@@ -31,8 +40,12 @@ int main()
     {
         for (int j = 0; j < mapColums; j++)
         {
-            num = (rand() % 8);
-            grid[i][j] = mapBlocks[num];
+            randomNum = (rand() % 8);
+            grid[i][j] = mapBlocks[randomNum];
+            if (grid[i][j] == 'F')
+            {
+                initialTargets++;
+            }
         }
     }
     grid[0][0] = player;
@@ -42,6 +55,7 @@ int main()
 
     while (tries > 0)
     {
+        
         targetsNumber = 0;
         for (int i = 0; i < mapRows; i++)
         {
@@ -55,10 +69,16 @@ int main()
             }
             cout << '\n';
         }
+        snakeSize = initialTargets - targetsNumber;
+        if (snakeSize == 0)
+        {
+            snakeSize = 1;
+        }
+        
         cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
         cout << "Targets left: " << targetsNumber << '\n';
         cout << "Tries left: " << tries << '\n';
-
+        cout << "Snake size: " << snakeSize << '\n';
 
         cout << "Enter direction(u-up, d-down, l-left, r-right, e-end):\n";
         cin >> direction;

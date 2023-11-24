@@ -99,7 +99,7 @@ int main()
         cout << "Tries left: " << tries << '\n';
         cout << "Snake size: " << snakeSize << '\n';
         // getting the directions from the user
-        cout << "Enter direction(u-up, d-down, l-left, r-right, e-end):\n";
+        cout << "Enter direction(WASD): \n";
         cin >> direction;
         tries--;
 

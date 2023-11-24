@@ -108,7 +108,7 @@ int main()
 
         switch (direction)
         {
-        case 'u':
+        case 'w':
             if (rowIndex > 0)
             {
                 grid[rowIndex][colIndex] = '*';
@@ -122,7 +122,7 @@ int main()
                 grid[rowIndex][colIndex] = player;
             }
             break;
-        case 'd':
+        case 's':
             if (rowIndex < mapRows - 1)
             {
                 grid[rowIndex][colIndex] = '*';
@@ -136,7 +136,7 @@ int main()
                 grid[rowIndex][colIndex] = player;
             }
             break;
-        case 'l':
+        case 'a':
             if (colIndex > 0)
             {
                 grid[rowIndex][colIndex] = '*';
@@ -150,7 +150,7 @@ int main()
                 grid[rowIndex][colIndex] = player;
             }
             break;
-        case 'r':
+        case 'd':
             if (colIndex < mapColums - 1)
             {
                 grid[rowIndex][colIndex] = '*';

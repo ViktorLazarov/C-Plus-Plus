@@ -70,7 +70,7 @@ int main()
 
     while (tries > 0)
     {
-        currentTargetsNumber = 0;
+        currentTargetsNumber = 0; // starting from 0 after every move of the user
         // printing of the map
         for (int i = 0; i < mapRows; i++)
         {
@@ -101,11 +101,12 @@ int main()
         // getting the directions from the user
         cout << "Enter direction(WASD): \n";
         cin >> direction;
+
         tries--;
 
         if (direction == 'e')
         {
-            break;
+            break;  // exit the program
         }
         // calculating the movement of the snake, based on the input of the user
         switch (direction)
@@ -113,9 +114,9 @@ int main()
         case 'w':
             if (rowIndex > 0)
             {
-                grid[rowIndex][colIndex] = '*';
-                rowIndex--;
-                grid[rowIndex][colIndex] = player;
+                grid[rowIndex][colIndex] = '*';     // changes the block, the coursor is located to '*'    
+                rowIndex--;                         // the coursor moves up, by decreasing the rowIndex
+                grid[rowIndex][colIndex] = player;  // changes the block, the coursor is located to the player figure   
             }
             else if (rowIndex == 0)
             {

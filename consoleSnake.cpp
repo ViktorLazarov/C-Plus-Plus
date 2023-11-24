@@ -6,6 +6,7 @@ using namespace std;
 
 int main()
 {
+    // define the dimensions of the map
     int height, width;
     cout << "Please specify the dimentions of the map!\n";
     cout << "Height: ";
@@ -92,20 +93,21 @@ int main()
         }
         // calculating the size of the snake
         snakeSize = (initialTargets - currentTargetsNumber) + 1;
-
+        // printing
         cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
         cout << "Targets left: " << currentTargetsNumber << '\n';
         cout << "Tries left: " << tries << '\n';
         cout << "Snake size: " << snakeSize << '\n';
-
+        // getting the directions from the user
         cout << "Enter direction(u-up, d-down, l-left, r-right, e-end):\n";
         cin >> direction;
         tries--;
+
         if (direction == 'e')
         {
             break;
         }
-
+        // calculating the movement of the snake, based on the input of the user
         switch (direction)
         {
         case 'w':

@@ -1,35 +1,48 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
-void fillMap(vector<vector<char>> &array);
-void printMap(const vector<vector<char>> &array);
+void printMap(string map, int rows, int cols);
+void changeElement(string &map, int cols, int userRow, int userCol);
+int main()
+{
+    int rows;
+    int cols;
 
-int main() {
-    int mapX = 7;
-    int mapY = 9;
+    cout << "Map rows: ";
+    cin >> rows;
+    cout << "Map cols: ";
+    cin >> cols;
 
-    vector<vector<char>> map(mapX, vector<char>(mapY));
+    int userRow;
+    int userCol;
+    cout << "Change an element\n";
+    cout << "Row: ";
+    cin >> userRow;
+    cout << "Col: ";
+    cin >> userCol;
 
-    fillMap(map);
-    printMap(map);
+    string map(rows * cols, '-');
 
-    return 0;
+    changeElement(map, cols, userRow, userCol);
+    printMap(map, rows, cols);
+
+        return 0;
+}
+void changeElement(string &map, int cols, int userRow, int userCol)
+{
+
+    map[((userRow - 1) * cols) + (userCol-1)] = 'X';
 }
 
-void fillMap(vector<vector<char>> &array) {
-    for (int i = 0; i < array.size(); i++) {
-        for (int j = 0; j < array[i].size(); j++) {
-            array[i][j] = '-';
-        }
-    }
-}
+void printMap(string map, int rows, int cols)
+{
 
-void printMap(const vector<vector<char>> &array) {
-    for (const auto &row : array) {
-        for (char cell : row) {
-            cout << cell;
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            cout << map[(i * cols) + j];
         }
         cout << '\n';
     }

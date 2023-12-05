@@ -1,15 +1,16 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
-void fillMap(char array[][9]);
-void printMap(char array[][9]);
-int main()
-{
 
+void fillMap(vector<vector<char>> &array);
+void printMap(const vector<vector<char>> &array);
+
+int main() {
     int mapX = 7;
     int mapY = 9;
 
-    char map[7][9];
+    vector<vector<char>> map(mapX, vector<char>(mapY));
 
     fillMap(map);
     printMap(map);
@@ -17,25 +18,18 @@ int main()
     return 0;
 }
 
-void fillMap(char array[][9])
-{
-
-    for (int i = 0; i < 7; i++)
-    {
-        for (int j = 0; j < 9; j++)
-        {
+void fillMap(vector<vector<char>> &array) {
+    for (int i = 0; i < array.size(); i++) {
+        for (int j = 0; j < array[i].size(); j++) {
             array[i][j] = '-';
         }
     }
 }
 
-void printMap(char array[][9])
-{
-    for (int i = 0; i < 7; i++)
-    {
-        for (int j = 0; j < 9; j++)
-        {
-            cout << array[i][j];
+void printMap(const vector<vector<char>> &array) {
+    for (const auto &row : array) {
+        for (char cell : row) {
+            cout << cell;
         }
         cout << '\n';
     }

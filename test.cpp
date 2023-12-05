@@ -6,7 +6,7 @@ void changeInt(int &x, int &y);
 int main()
 {
     // passing an array as an argument
-    int arr[5];
+    // int arr[5];
 
     // fill(arr, 5);
     // for (int i = 0; i < 5; i++)
@@ -15,22 +15,22 @@ int main()
     // }
     std::cout << "***********************************" << '\n';
     // passing ints by reference
-    int x = 9;
-    int y = 7;
-    // changeInt(x, y);
-    std::cout << x << '\n';
-    std::cout << y << '\n';
+    int x = 7;
+    int y = 9;
+    // // changeInt(x, y);
+    // std::cout << x << '\n';
+    // std::cout << y << '\n';
 
     std::string map(x * y, '-');
+    map[5] = 'A';
     for (int i = 0; i < x; i++)
     {
         for (int j = 0; j < y; j++)
         {
-            std::cout << map[j];
+            std::cout << map[i * (x - 1) + j];
         }
         std::cout << '\n';
     }
-    map[23] = 'A';
 
     std::cout << map;
 

@@ -4,7 +4,7 @@
 using namespace std;
 
 void printMap(string map, int rows, int cols);
-// void changeElement(string &map, int cols, int userRow, int userCol);
+void changeElement(string &map, int cols, int userRow, int userCol);
 
 int main()
 {
@@ -25,16 +25,13 @@ int main()
 
     // randomly generate the position of the ships
     int ships[numberOfShips][2];
-    
-    int shipRow;
-    int shipCol;
+
     srand(time(0));
     for (int i = 0; i < numberOfShips; i++)
     {
         // generate random values for the position of every ship
-        shipRow = (rand() % rows) + 1;
-        shipCol = (rand() % cols) + 1;
-        
+        ships[i][0] = (rand() % rows) + 1;
+        ships[i][1] = (rand() % cols) + 1;
     }
 
     for (int i = 0; i < numberOfShips; i++)
@@ -42,34 +39,51 @@ int main()
         cout << ships[i][0] << ' ' << ships[i][1] << endl;
     }
 
-    // get user guess
     int userRow;
     int userCol;
-    cout << "Guess where the ship is!\n";
-    cout << "Row: ";
-    cin >> userRow;
-    cout << "Col: ";
-    cin >> userCol;
+    bool shipFound = false;
 
     while (foundShips < 4)
     {
-        if (foundShips == 4)
+        // get user guess
+        cout << "Guess where the ship is!\n";
+        cout << "Row: ";
+        cin >> userRow;
+        cout << "Col: ";
+        cin >> userCol;
+
+        for (int i = 0; i < numberOfShips; i++)
         {
-            cout << "Congratulations! You have found all the hidden ships!\n";
+            if (userRow == ships[i][0] && userCol == ships[i][1])
+            {
+                shipFound = true;
+            }
+        }
+        if (shipFound)
+        {
+            /* code */
+            cout << "You have found a ship!\n";
+            foundShips++;
+            changeElement(map, cols, userRow, userCol);
+            printMap(map, rows, cols);
+            shipFound = false;
+        }else {
+            cout << "Try again\n";
         }
     }
+    cout << "You have found all the ships\n";
 
     // changeElement(map, cols, userRow, userCol);
-    printMap(map, rows, cols);
+    // printMap(map, rows, cols);
 
     return 0;
 }
 
-// void changeElement(string &map, int cols, int userRow, int userCol)
-// {
+void changeElement(string &map, int cols, int userRow, int userCol)
+{
 
-//     map[((userRow - 1) * cols) + (userCol-1)] = 'X';
-// }
+    map[((userRow - 1) * cols) + (userCol - 1)] = 'X';
+}
 
 void printMap(string map, int rows, int cols)
 {

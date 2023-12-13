@@ -10,11 +10,11 @@ int main()
 
     string product;
     int quantity;
-    double orderPrice = 0;
+    double orderTotal = 0;
 
     getInput(product, quantity);
-    calculate(orderPrice, product, quantity);
-    print(orderPrice);
+    calculate(orderTotal, product, quantity);
+    print(orderTotal);
 
     return 0;
 }
@@ -26,7 +26,7 @@ void getInput(string &product, int &quantity)
     cout << "Enter quantity: ";
     cin >> quantity;
 }
-void calculate(double &price, string product, int quantity)
+void calculate(double &total, string product, int quantity)
 {
     double productPrice = 0;
     bool validInput = false;
@@ -61,11 +61,11 @@ void calculate(double &price, string product, int quantity)
         }
     }
 
-    price = productPrice * quantity;
+    total = productPrice * quantity;
 }
 
-void print(double orderPrice)
+void print(double orderTotal)
 {
 
-    cout << orderPrice;
+    cout << orderTotal;
 }

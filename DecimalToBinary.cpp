@@ -8,7 +8,8 @@ string binary;
 void getInput()
 {
     cout << "Enter a string to be translated!: ";
-    cin >> input;
+    getline(cin, input);
+    
 }
 
 void calculate()

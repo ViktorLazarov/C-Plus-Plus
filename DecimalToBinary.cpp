@@ -2,21 +2,29 @@
 #include <cmath>
 
 using namespace std;
-    int input;
-    string binary;
+string input;
+string binary;
 
-void getInput(){
-    cout << "Enter a decimal number!: ";
+void getInput()
+{
+    cout << "Enter a string to be translated!: ";
     cin >> input;
 }
 
-void calculate(){
-    while (input > 0)
+void calculate()
+{
+    for (int i = 0; i < input.size(); i++)
     {
-        binary.insert(0, to_string(input % 2));
-        input /= 2;
+        char character = input[i];
+        cout << character << '\n';
+        while (character > 0)
+        {
+            binary.insert(0, to_string(character % 2));
+            character /= 2;
+        }
+        cout << binary << '\n';
+        binary.clear();
     }
-    cout << binary;
 }
 
 int main()
